@@ -1,13 +1,11 @@
 # SOVELLUS PAINOINDEKSIN JA KEHON RASVAPROSENTIN LASKEMISEEN    
 
-
 # Muuttujat
 # Kysytään käyttäjältä tiedot
 pituus_teksti = input('Kuinka pitkä olet(cm)?')
 paino_teksti = input('Kuinka paljon painat(kg)?')
 ika_teksti = input('Kuinka vanha olet?')
 sukupuoli_teksti = input('Sukupuoli: mies - vastaa: 1 / nainen - vastaa: 0:') 
-
 
 pituus = float(pituus_teksti)
 paino = float(paino_teksti)
@@ -28,8 +26,6 @@ def laske_bmi(paino, pituus):
     bmi = round(paino / pituus**2, 2)
     #print('Painoindeksisi on', bmi)
     return bmi
-
-
 
 #Aikuisen rasvaprosentti = (1.20 × painoindeksi) + (0.23 × ikä) − (10.8 × sukupuoli) − 5.4
 
