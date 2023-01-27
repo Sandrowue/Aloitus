@@ -25,10 +25,10 @@ while pituus_teksti != '':
 bmi_lista = []
 
 while True:
-    
-    pituus_teksti = input('Pituus (cm), (stop = tyhjä): ')
-    if pituus_teksti == '':
+    nimi = input('Kuntoilijan nimi:, (stop = tyhjä): ')
+    if nimi == '':
         break
+    pituus_teksti = input('Pituus (cm):')
     paino_teksti = input('Paino (kg): ')
    
     # yritetään muuttaa syötetyt tekstit luvuksi
@@ -36,8 +36,11 @@ while True:
         pituus = float(pituus_teksti)
         paino = float(paino_teksti)
         bmi = fitness.laske_bmi(paino, pituus)
+        # Luodaan monikko (tuple), jossa nimi ja bmi
+        monikko = (nimi, bmi)
         # Lisätään BMI listaan
-        bmi_lista.append(bmi)
+        bmi_lista.append(monikko)
+        
         print('Painoindeksi on', bmi)
     # Jos tapathtuu virhe, ilmoitetaan käyttäjälle
     except Exception as e:
