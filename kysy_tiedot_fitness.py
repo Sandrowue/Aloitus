@@ -22,7 +22,7 @@ while pituus_teksti != '':
 
     print('Painoindeksi on', bmi)'''
 
-
+bmi_lista = []
 
 while True:
     
@@ -36,9 +36,11 @@ while True:
         pituus = float(pituus_teksti)
         paino = float(paino_teksti)
         bmi = fitness.laske_bmi(paino, pituus)
-
+        # Lisätään BMI listaan
+        bmi_lista.append(bmi)
         print('Painoindeksi on', bmi)
     # Jos tapathtuu virhe, ilmoitetaan käyttäjälle
     except Exception as e:
         print('Syötteessä oli virhe, pelkkä numero sallittu!', e)
     # lasketaan painoindeksin fitness-modulin laske_bmi funktiolla
+print('Painoindeksit olivat:', bmi_lista)
