@@ -23,11 +23,12 @@ while pituus_teksti != '':
     print('Painoindeksi on', bmi)'''
 
 bmi_lista = []
-
+nimi_lista = []
 while True:
     nimi = input('Kuntoilijan nimi:, (stop = tyhjä): ')
     if nimi == '':
         break
+    nimi_lista.append(nimi)
     pituus_teksti = input('Pituus (cm):')
     paino_teksti = input('Paino (kg): ')
    
@@ -47,3 +48,10 @@ while True:
         print('Syötteessä oli virhe, pelkkä numero sallittu!', e)
     # lasketaan painoindeksin fitness-modulin laske_bmi funktiolla
 print('Painoindeksit olivat:', bmi_lista)
+
+# Puretaan lista ja tulestetaan se rivi riviltä -> monikko / rivi
+for henkilo in bmi_lista:
+    print(henkilo[0], 'painoindeksi on', henkilo[1])
+
+nimi_lista.sort()
+print(nimi_lista)
