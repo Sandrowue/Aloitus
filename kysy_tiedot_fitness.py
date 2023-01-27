@@ -30,10 +30,15 @@ while True:
     if pituus_teksti == '':
         break
     paino_teksti = input('Paino (kg): ')
+   
+    # yritetään muuttaa syötetyt tekstit luvuksi
+    try:
+        pituus = float(pituus_teksti)
+        paino = float(paino_teksti)
+        bmi = fitness.laske_bmi(paino, pituus)
 
-    pituus = float(pituus_teksti)
-    paino = float(paino_teksti)
+        print('Painoindeksi on', bmi)
+    # Jos tapathtuu virhe, ilmoitetaan käyttäjälle
+    except Exception as e:
+        print('Syötteessä oli virhe, pelkkä numero sallittu!', e)
     # lasketaan painoindeksin fitness-modulin laske_bmi funktiolla
-    bmi = fitness.laske_bmi(paino, pituus)
-
-    print('Painoindeksi on', bmi)
