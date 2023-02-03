@@ -38,8 +38,8 @@ if __name__ == "__main__":
     
     kuntoilija = Kuntoilija('Kalle Kuntoilija', 171, 56, 18, 1)
     print(kuntoilija.nimi, 'painaa', kuntoilija.paino, 'kg')
-    print('painoindeksi on', kuntoilija.bmi)
-    print('rasvaprosentti on', kuntoilija.rasvaprosentti())
+    print(kuntoilija.nimi, 'painoindeksi on', kuntoilija.bmi)
+    print(kuntoilija.nimi, 'rasvaprosentti on', kuntoilija.rasvaprosentti())
 
     juniorikuntoilija = JunioriKuntoilija('Aki', 171, 56, 17, 1)
     print(juniorikuntoilija.nimi,'rasvaprosentti on', juniorikuntoilija.rasvaprosentti())
