@@ -24,10 +24,12 @@ class Kuntoilija:
 
  # Metodi aikuisen rasvaprosentin laskemiseen
     def rasvaprosentti(self):
-        rasvaprosentti = fitness.aikuisen_rasvaprosentti(self.bmi, self.ika, self.sukupuoli)
+        self.rasvaprosentti = fitness.aikuisen_rasvaprosentti(self.bmi, self.ika, self.sukupuoli)
+        return self.rasvaprosentti
 
 if __name__ == "__main__":
     
-    kuntoilija = Kuntoilija('Kalle Kuntoilija', 171, 56, 22, 'mies')
+    kuntoilija = Kuntoilija('Kalle Kuntoilija', 171, 56, 22, 1)
     print(kuntoilija.nimi, 'painaa', kuntoilija.paino, 'kg')
     print('painoindeksi on', kuntoilija.painoindeksi())
+    print('rasvaprosentti on', kuntoilija.rasvaprosentti())
