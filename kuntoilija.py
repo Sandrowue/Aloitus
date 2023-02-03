@@ -42,4 +42,4 @@ if __name__ == "__main__":
     print('rasvaprosentti on', kuntoilija.rasvaprosentti())
 
     juniorikuntoilija = JunioriKuntoilija('Aki', 171, 56, 17, 1)
-    print('rasvaprosentti on', juniorikuntoilija.rasvaprosentti())
+    print(juniorikuntoilija.nimi,'rasvaprosentti on', juniorikuntoilija.rasvaprosentti())
