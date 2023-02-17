@@ -88,7 +88,7 @@ def usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_y
     tuuma_lantion_ymparys = lantion_ymparys / 2.54
     tuuma_kaulan_ymparys = kaulan_ymparys / 2.54
     
-    usarprosentti = 163.205 * math.log10(tuuma_vyotaron_ymparys + tuuma_lantion_ymparys - tuuma_kaulan_ymparys) - 97.684 * math.log10(tuuma_pituus) - 78,387
+    usarprosentti = round(163.205 * math.log10(tuuma_vyotaron_ymparys + tuuma_lantion_ymparys - tuuma_kaulan_ymparys) - 97.684 * math.log10(tuuma_pituus) - 78.387, 2)
     return usarprosentti
 
 if __name__ == '__main__':
@@ -111,6 +111,7 @@ if __name__ == '__main__':
     oma_bmi = laske_bmi(paino, pituus)
     vyotaron_ymparys = float(vyotaron_ymparys_teksti)
     kaulan_ymparys = float(kaulan_ymparys_teksti)
+    lantion_ymparys = float(lantion_ymparys_teksti)
 
     if ika >= 18:
         oma_rasvaprosentti = aikuisen_rasvaprosentti(oma_bmi, ika, sukupuoli)
@@ -119,5 +120,5 @@ if __name__ == '__main__':
 
     print('Painoindeksisi on:', oma_bmi, 'ja kehon rasvaprosentti on:', oma_rasvaprosentti)
 
-    usa_rasvaprosentti = usarasvaprosentti_mies(pituus, vyotaron_ymparys, kaulan_ymparys)
+    usa_rasvaprosentti = usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys)
     print('USA:n armeijan kaavalla rasvaprosentti on', usa_rasvaprosentti)
