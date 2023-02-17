@@ -75,7 +75,21 @@ def usarasvaprosentti_mies(pituus, vyotaron_ymparys, kaulan_ymparys):
     usarprosentti = round(86.01 * math.log10(tuuma_vyotaron_ymparys - tuuma_kaulan_ymparys) - 70.041 * math.log10(tuuma_pituus) + 36.76, 2178)
     return usarprosentti 
 
+def usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys):
+    """Laskee naisen rasvaprosentin USA:n armejan kaavalla
 
+    Args:
+        pituus (float): pituus (cm)
+        vyotaron_ymparys (float): vyötärön ympärysmitta (cm)
+        kaulan_ymparys (float): kaulan ymparysmitta (cm)
+    """
+    tuuma_pituus = pituus / 2.54
+    tuuma_vyotaron_ymparys = vyotaron_ymparys / 2.54
+    tuuma_lantion_ymparys = lantion_ymparys / 2.54
+    tuuma_kaulan_ymparys = kaulan_ymparys / 2.54
+    
+    usarprosentti = 163.205 * math.log10(tuuma_vyotaron_ymparys + tuuma_lantion_ymparys - tuuma_kaulan_ymparys) - 97.684 * math.log10(tuuma_pituus) - 78,387
+    return usarprosentti
 
 if __name__ == '__main__':
     # Suoritetaan seuraavat rivit vain, jos tämä tiedosto on pääohjelma
@@ -87,7 +101,8 @@ if __name__ == '__main__':
     ika_teksti = input('Kuinka vanha olet?')
     sukupuoli_teksti = input('Sukupuoli: mies - vastaa: 1 / nainen - vastaa: 0:') 
     vyotaron_ymparys_teksti = input('Mikä on vyötärön ympäryksesi? (cm):')
-    kaulan_ymparys_teksti = input('Mikä on kaulan ympärysmitta (cm):')
+    kaulan_ymparys_teksti = input('Mikä on kaulan ympärysmitta? (cm):')
+    lantion_ymparys_teksti = input('Mikä on lantion_ymparys? (cm):')
 
     pituus = float(pituus_teksti)
     paino = float(paino_teksti)
