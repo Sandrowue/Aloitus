@@ -72,7 +72,7 @@ def usarasvaprosentti_mies(pituus, vyotaron_ymparys, kaulan_ymparys):
     tuuma_vyotaron_ymparys = vyotaron_ymparys / 2.54
     tuuma_kaulan_ymparys = kaulan_ymparys / 2.54
     # Lasketaan rasvaprosentti
-    usarprosentti = round(86.01 * math.log10(tuuma_vyotaron_ymparys - tuuma_kaulan_ymparys) - 70.041 * math.log10(tuuma_pituus) + 36.76, 2178)
+    usarprosentti = round(86.01 * math.log10(tuuma_vyotaron_ymparys - tuuma_kaulan_ymparys) - 70.041 * math.log10(tuuma_pituus) + 36.76, 2)
     return usarprosentti 
 
 def usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys):
@@ -102,7 +102,10 @@ if __name__ == '__main__':
     sukupuoli_teksti = input('Sukupuoli: mies - vastaa: 1 / nainen - vastaa: 0:') 
     vyotaron_ymparys_teksti = input('Mikä on vyötärön ympäryksesi? (cm):')
     kaulan_ymparys_teksti = input('Mikä on kaulan ympärysmitta? (cm):')
-    lantion_ymparys_teksti = input('Mikä on lantion_ymparys? (cm):')
+    lantion_ymparys_teksti = 0
+
+    if sukupuoli_teksti == '0':
+        lantion_ymparys_teksti = input('Mikä on lantion_ymparys? (cm):')
 
     pituus = float(pituus_teksti)
     paino = float(paino_teksti)
@@ -119,6 +122,10 @@ if __name__ == '__main__':
         oma_rasvaprosentti = lapsen_rasvaprosentti(oma_bmi, ika, sukupuoli)
 
     print('Painoindeksisi on:', oma_bmi, 'ja kehon rasvaprosentti on:', oma_rasvaprosentti)
-
-    usa_rasvaprosentti = usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys)
-    print('USA:n armeijan kaavalla rasvaprosentti on', usa_rasvaprosentti)
+# Jos mies laske miehen kaavalla, muusa tapauksessa naisen kaavalla:
+    if sukupuoli_teksti == '1':
+        usa_rasvaprosentti = usarasvaprosentti_mies(pituus, vyotaron_ymparys, kaulan_ymparys)
+        print('USA:n armeijan kaavalla rasvaprosentti on', usa_rasvaprosentti)
+    else: 
+        usa_rasvaprosentti = usarasvaprosentti_nainen(pituus, vyotaron_ymparys, lantion_ymparys, kaulan_ymparys)
+        print('USA:n armeijan kaavalla rasvaprosentti on', usa_rasvaprosentti)

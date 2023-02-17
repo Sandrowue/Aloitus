@@ -24,3 +24,8 @@ def test_lapsen_rasvaprosentti():
     assert fitness.lapsen_rasvaprosentti(23.81, 14, 0) == 27.6
     #poika
     assert fitness.lapsen_rasvaprosentti(24.44, 14, 1) == 24.9
+
+def test_usarasvaprosentti_mies():
+    assert fitness.usarasvaprosentti_mies(178, 100, 36) ==28.02
+    assert fitness.usarasvaprosentti_mies(170, 90, 33) == 25.1
+    assert fitness.usarasvaprosentti_mies(189, 110, 39) == 30.08

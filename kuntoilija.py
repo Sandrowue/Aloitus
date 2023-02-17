@@ -25,6 +25,14 @@ class Kuntoilija:
         self.rasvaprosentti = fitness.aikuisen_rasvaprosentti(self.bmi, self.ika, self.sukupuoli)
         return self.rasvaprosentti
 
+    def usa_rasvaprosentti_mies(self, pituus, vyotaron_ymparys, kaulan_ymparys):
+        usa_rasvaprosentti =  fitness.usarasvaprosentti_mies(pituus,vyotaron_ymparys, kaulan_ymparys)
+        return usa_rasvaprosentti
+    
+    def usa_rasvaprosentti_nainen(self, pituus, vyötaron_ymparys, lantion_ymparys, kaulan_ymparys):
+        usa_rasvaprosentti = fitness.usarasvaprosentti_nainen(pituus, vyötaron_ymparys, lantion_ymparys, kaulan_ymparys)
+
+
 # JunioriKuntoilija on Kuntoilia luokan aliluokka
 class JunioriKuntoilija(Kuntoilija):
     def __init__(self, nimi, pituus, paino, ika, sukupuoli):
