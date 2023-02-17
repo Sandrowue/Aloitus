@@ -22,15 +22,38 @@ class Kuntoilija:
 
  # Metodi aikuisen rasvaprosentin laskemiseen
     def rasvaprosentti(self):
+     
         self.rasvaprosentti = fitness.aikuisen_rasvaprosentti(self.bmi, self.ika, self.sukupuoli)
         return self.rasvaprosentti
 
     def usa_rasvaprosentti_mies(self, pituus, vyotaron_ymparys, kaulan_ymparys):
+        """Laskee miehen rasvaprosentin USAn armeijan kaavoilla
+
+        Args:
+            pituus (float): pituus (cm)
+            vyotaron_ymparys (float): vyötärön ympärysmitta (cm)
+            kaulan_ymparys (float): kaulan ympärys cm
+
+        Returns:
+            float: rasvaprosentti
+        """
         usa_rasvaprosentti =  fitness.usarasvaprosentti_mies(pituus,vyotaron_ymparys, kaulan_ymparys)
         return usa_rasvaprosentti
     
     def usa_rasvaprosentti_nainen(self, pituus, vyötaron_ymparys, lantion_ymparys, kaulan_ymparys):
+        """Laskee naisen rasvaprosentin USAn armeijan kaavoilla
+
+        Args:
+            pituus (float): pituus (cm)
+            vyotaron_ympärys (float): vyötärön ympärysmitta cm
+            lantion_ymparys (float): lantion ympärysmitta cm
+            kaulan_ymparys (float): kaulan ympärysmitta cm
+
+        Returns:
+            float: rasvaprosennti
+        """
         usa_rasvaprosentti = fitness.usarasvaprosentti_nainen(pituus, vyötaron_ymparys, lantion_ymparys, kaulan_ymparys)
+        return usa_rasvaprosentti
 
 
 # JunioriKuntoilija on Kuntoilia luokan aliluokka
