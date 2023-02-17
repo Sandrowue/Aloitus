@@ -29,3 +29,8 @@ def test_usarasvaprosentti_mies():
     assert fitness.usarasvaprosentti_mies(178, 100, 36) ==28.02
     assert fitness.usarasvaprosentti_mies(170, 90, 33) == 25.1
     assert fitness.usarasvaprosentti_mies(189, 110, 39) == 30.08
+
+def test_usarasvaprosentti_nainen():
+    assert fitness.usarasvaprosentti_nainen(176, 105, 70, 30) == 28.48
+    assert fitness.usarasvaprosentti_nainen(165, 100, 55, 28) == 21.83
+    assert fitness.usarasvaprosentti_nainen(159, 95, 75, 29) == 30.81
