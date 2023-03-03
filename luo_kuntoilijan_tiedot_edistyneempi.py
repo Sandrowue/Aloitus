@@ -26,11 +26,15 @@ def kysy_tiedo(kysymys):
             print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
             result = (0, 'Error', 1, str(e))
     return result
-# Enter information about an athlete
 
+# Enter information about an athlete
 nimi = input('Nimi: ')
+
+# Use ask_user function to get height and convert it into float
 answer = kysy_tiedo('Pituus (cm): ')
+# Read the 1st element of the tuple containing height value
 pituus = answer[0]
+
 answer = kysy_tiedo('Paino (kg): ')
 paino = answer[0]
 answer = kysy_tiedo('Ikä: ')
