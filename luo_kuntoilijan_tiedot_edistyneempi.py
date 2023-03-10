@@ -3,60 +3,32 @@
 # Kirjastot ja Moduulit
 
 import kuntoilija
-
+import questions
 # Enter information about an athlete
-nimi = input('Nimi: ')
+name = input('Nimi: ')
 
-# Use ask_user function to get height and convert it into float
-answer = kysy_tiedo('Pituus (cm): ')
-# Read the 1st element of the tuple containing height value
-pituus = answer[0]
+# Ask details about her/him
 
-answer = kysy_tiedo('Paino (kg): ')
-paino = answer[0]
-answer = kysy_tiedo('Ikä: ')
-ika = answer[0]
-answer = kysy_tiedo('Sukupuoli, 1 mies, 0 nainen')
-sukupuoli = answer[0]
+question1 = questions.Question('Kuinka paljon painat (kg)? ')
+weight = question1.kysy_tiedo_float(True)
 
+question2 = questions.Question('Kuinka pitkä olet (cm)? ')
+height = question2.kysy_tiedo_float(True)
 
+question3 = questions.Question('Kuinka vanha olet? ')
+age = question3.kysy_tiedo_integer(True)
 
-'''
-while True:
-    pituus_txt = input('Pitusss (cm): ')
-    try:
-        pituus = float(pituus_txt)
-        break
-    except Exception as e:
-        print('Virhe pituuden arvossa, tarkista syöte', e)
+question4 = questions.Question('Sukupuoli: 1 = mies, 0 = nainen: ')
+gender = question4.kysy_tiedo_integer(True)
 
-while True:
-    paino_txt = input('Paino (kg): ')
-    try:
-        paino = float(paino_txt)
-        break
-    except Exception as e:
-        print('Virhe painon arvossa, tarkista syöte', e)    
+question5 = questions.Question('Mikä on kaulanympäryksesi (cm)? ')
+neck = question5.kysy_tiedo_float(True)
 
-while True:
-    ika_txt = input('Ikä: ')
-    try:
-        ika = float(ika_txt)
-        break
-    except Exception as e:
-        print('Virhe iän arvossa, tarkista syöte', e)
+question6 = questions.Question('Mikä on vyötärön mittasi (cm)? ')
+waist = question6.kysy_tiedo_float
+if gender == 0: 
+    question7 = questions.Question('Mikä on lantionympäryksesi (cm) ?')
+    hip = question7.kysy_tiedo_float(True)
 
-while True:
-    sukupuoli_txt = input('Sukupuoli, 1 mies, 0 nainen')
-    try:
-        sukupuoli = float(sukupuoli_txt)
-        break
-    except Exception as e:
-        print('Virhe syötetyssä arvossa, vain 1 ja 0 sallittu', e)'''
-
-
-kuntoilija1 = kuntoilija.Kuntoilija(nimi, pituus, paino, ika, sukupuoli)
-
-print(kuntoilija1.nimi, 'painoindeksi on ', kuntoilija1.bmi)
-
-print('Viimeisen kysymyksen virheilmoitus', answer[1], 'koodi', answer[2], 'engl. ilmoitus', answer[3])
+# Create an athlet object from Kuntoilija class
+athlete = kuntoilija.Kuntoilija(name, height, weight, age, gender)
