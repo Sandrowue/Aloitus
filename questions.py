@@ -9,6 +9,44 @@ class Question():
     and converting answers to various datatypes."""
     def __init__(self, kysymys):
         self.kysymys = kysymys
+
+    @staticmethod
+    def kysy_tiedo_integer(question, loop):
+        """Asks a question and converts the answer to a integer point number
+
+        Args:
+            loop (bool): If True asks the question until able to convert it
+
+        Returns:
+            tupple: answer as integer, error message, error code, detailed error
+        """
+
+            # If loop arguments is True use whil loop until inputs correct value
+        if loop == True:
+
+            while True:
+                answer_txt = input(question)
+                try:
+                    answer = int(answer_txt)
+                    result = (answer, 'OK', 0, 'Conversion successful')
+                    break
+                except Exception as e:
+                    print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
+                    result = (0, 'Error', 1, str(e))
+            return result
+        
+        # Else ask once and return zero value an error information
+        else:
+            answer_txt = input(question)
+            try:
+                answer = int(answer_txt)
+                result = (answer, 'OK', 0, 'Conversion successful')
+            except Exception as e:
+                print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
+                result = (0, 'Error', 1, str(e))
+            return result    
+
+
     # Ask a question and covert the answer to float
     def kysy_tiedo_float(self, loop):
         """Asks a question and converts the answer to a floating point number
@@ -25,6 +63,7 @@ class Question():
 
             while True:
                 answer_txt = input(self.kysymys)
+                # TODO: Add a routine to change , to . if user types the wrong symbol
                 try:
                     answer = float(answer_txt)
                     result = (answer, 'OK', 0, 'Conversion successful')
@@ -45,7 +84,7 @@ class Question():
                 result = (0, 'Error', 1, str(e))
             return result
         
-    def kysy_tiedo_integer(self, loop):
+    '''def kysy_tiedo_integer(self, loop):
             """Asks a question and converts the answer to a integer point number
 
             Args:
@@ -78,7 +117,7 @@ class Question():
                 except Exception as e:
                     print('Virhe syötetyssä arvossa, älä käytä yksiköitä', e)
                     result = (0, 'Error', 1, str(e))
-                return result    
+                return result'''    
 
     def kysy_tiedo_boolean(self, true_value, false_value, loop):
         """Asks a question and converts the answer to a boolean value
@@ -142,7 +181,7 @@ if __name__ == "__main__":
     print(answer_and_error)
 
     question3 = Question('Haluatko lähteä viikonlopun viettoon?')
-    answer_and_error = question3.kysy_tiedo_boolean('Y', 'N', True)
+    answer_and_error = question3.kysy_tiedo_boolean('Y', 'N', False)
     print(answer_and_error)
         
     
